@@ -27,6 +27,21 @@
                         background-color: lightblue;
                     }
 
+                    /* 상태선택자 : 입력폼의 상태에 따른 선택 */
+                    input:enabled{
+                        /*입력 가능한 input태그를 선택한다.*/
+                        background-color: white;
+                    }
+                    input:disabled{
+                        /* 입력 불가능한 input태그 선택 */
+                        background-color:lightgrey;
+                    }
+
+                    input:focus{
+                        /*초점이 맞춰진 상태의 input 태그 선택*/
+                        background-color: orange;
+                    }
+
 
                 </Style>
             <fieldset><!--입력양식을 그룹화-->
@@ -35,6 +50,9 @@
                 <input type="text" name="userid" id="userid" placeholder="아이디를 입력해주세요"/><br/>
                 <label for="password">비밀번호</label>
                 <input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요"/><br>
+
+                <label for="code">추천코드</label>
+                <input type="text" name="code" id="code" disabled/><br>
                 <!-- 사용자 입력은 아니고, 폼 처리시 반드시 필요한 값 : 개발자 세팅-->
                 <input type="hidden" name="secret_code" value="secret">
                 <label for="gender">성별</label>
