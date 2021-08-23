@@ -5,12 +5,13 @@
     <title>Bit Lounge 건강음료</title>
   </head>
   <body>
+    <link rel="stylesheet" href="./CSS/style.css"/>
     <header>
     <h1>건강음료</h1>
     </header>
     <!--메뉴를 리스트화-->
     <nav>
-        <ul>
+        <ul class="menu"><!--순서가 없는 리스트-->
           <li><a href="#green">green</a> </li>
           <li><a href="#lightblue">lightblue</a> </li>
           <li><a href="#blue">blue</a> </li>
@@ -18,28 +19,31 @@
         </ul>
       </nav>
       <article>
-        <section id="green">
+        <div class="seller">
+            <img src="./images/Penguins.jpg" alt="펭귄">
+            </div>
+            <section id="green" class="green beverage">
           <div> 
             <h2>Green Tea Cooler</h2>
             <img src="./images/green.jpg" title="녹색" alt="초록이다">
             <p>Chock full of vitamins and minerals, this elixir combines the healthful benefits of green tea with a twist of chamomile blossoms and ginger root.</p>
           </div>
         </section>
-        <section id="lightblue">
+        <section id="lightblue" class="lightblue beverage">
           <div> 
             <h2>Raspberry Ice Concentration</h2>
             <img src="./images/lightblue.jpg" title="파랑" alt="파랑이다">
             <p>Combining raspberry juice with lemon grass, citrus peel and rosehips, this icy drink will make your mind feel clear and crisp.</p>
           </div> 
         </section>
-        <section id="blue">
+        <section id="blue" class="blue beverage">
           <div> 
             <h2>Blueberry Bliss Elixir</h2>
             <img src="images/blue.jpg"/>
             <p>Blueberries and cherry essence mixed into a base of elderflower herb tea will put you in a relaxed state of bliss in no time.</p>
           </div>
         </section>
-        <section id="red">
+        <section id="red" class="red beverage">
           <div> 
             <h2>Cranberry Antioxidant Blast</h2>
             <img src="./images/red.jpg">

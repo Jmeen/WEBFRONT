@@ -1,0 +1,8 @@
+@charset "UTF-8 ";
+/* 외부 CSS를 불러들인다*/
+@import "main.css";
+
+h1{
+    color : red ;
+    background-color: greenyellow;
+}
