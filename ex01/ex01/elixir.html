@@ -42,8 +42,22 @@
         /*beverage 클래스의 후손 p태그 선택 */
         font-weight: bold;
       }
+      /* 구조선택자 */
+      .menu>li:first-child{
+        /*메뉴 클래스의 자식 Li 중에서 첫번째 자식*/
+        background-color:rgba(0,255,0,0.1);
+      }
+      .menu>li:nth-child(2){
+        background-color: rgba(31, 166, 219, 0.1);
+      }
+      .menu>li:nth-child(3){
+        background-color: rgba(128 , 0  , 128 , 0.1);
+      }
+      .menu>li:last-child{
+        background-color: rgba(255, 0, 0, 0.3);
+      }
 
-      
+
     </Style>
     <header>
     <h1>건강음료</h1>
