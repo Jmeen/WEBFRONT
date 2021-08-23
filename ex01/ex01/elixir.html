@@ -35,8 +35,15 @@
         background-color: rgba(255, 0, 0, 0.1);
       }
 
+      /* 자식선택자 vs 후속선택자*/
+      /* 자식선택자 > : 직계 후손만 선택
+         후손 선택자 (공백) : 직계 포함한 모든 자손 선택*/
+      .beverage p{
+        /*beverage 클래스의 후손 p태그 선택 */
+        font-weight: bold;
+      }
 
-
+      
     </Style>
     <header>
     <h1>건강음료</h1>

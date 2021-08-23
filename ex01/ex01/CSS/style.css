@@ -6,3 +6,22 @@ h1{
     color : red ;
     background-color: greenyellow;
 }
+
+/* 가상선택자 : 반응선택자 */
+/* link상태와 visited상태 -> Only A Tag.
+a:visited{
+    /* 이미 방문한 링크*/
+    color:darkviolet;
+}
+a:link{
+    /*아직 미방문인 링크*/
+    color: cyan;
+}
+a:hover{
+    /*마우스가 올라와있을때*/
+    color: orange;
+}
+a:active{
+    /*마우스가 클릭된 상태*/
+    color: red;
+}

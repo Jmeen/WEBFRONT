@@ -9,6 +9,26 @@
         <form name="registerForm"
                 method="POST"
                 action="/register.html">
+                <link rel="stylesheet" href="./CSS/style.css"/>
+                <Style>
+                    /* 속성 선택자 연습 */
+                    *[type]{
+                        /*type 속성이 있는 모든 태그 선택*/
+                        background-color: beige;
+                    }
+
+                    input[type=text]{
+                        /*type 속성이 text인 태그만 선택 */
+                        background-color: lightgreen;
+                    }
+
+                    input[type=password]{
+                        /*type 속성이 password인 태그 선택 */
+                        background-color: lightblue;
+                    }
+
+
+                </Style>
             <fieldset><!--입력양식을 그룹화-->
                 <legend>회원가입</legend>
                 <label for="userId ">아이디</label>
