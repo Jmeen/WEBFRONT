@@ -9,10 +9,12 @@
     <Style>
       /* id 셀렉터 : #id */
       #green { /* id가 green인 요소*/
-        color: green;
+        color: green; /*키워드 사용*/
+        color: #008000; /*실제 값*/
       }
       #lightblue{
-        color: royalblue;
+        color: blue;
+        color : rgb(0, 0, 255); /*실제값 RGB */
       }
       #blue{
         color: purple;
@@ -24,15 +26,23 @@
       /* Class selector : .클래스명 */
       .beverage.green{
         background-color: rgba(0, 255, 0, 0.1);
+        background-color: #00FF0020;
       }
       .beverage.lightblue{
         background-color: rgba(0, 0, 255, 0.1);
       }
       .beverage.blue{
-        background-color: rgba(128, 0, 1238, 0.1);
+        background-color: rgba(128, 0, 128, 0.1);
+        background-color: #50005020;
       }
       .beverage.red{
         background-color: rgba(255, 0, 0, 0.1);
+        background-color: #FF000020;
+          /*폰트 설정
+          : 후보 글꼴을 , 로 나열
+          : 폰트가 없을 경우 대비, 가장 마지막에 일반 글꼴을 명시
+        */
+        font-family: 궁서체, 신명조, serif;
       }
 
       /* 자식선택자 vs 후속선택자*/
@@ -40,8 +50,41 @@
          후손 선택자 (공백) : 직계 포함한 모든 자손 선택*/
       .beverage p{
         /*beverage 클래스의 후손 p태그 선택 */
-        font-weight: bold;
+        /* font-weight 속성 : 글꼴의 두께*/
+        font-weight: lighter;
+        /* font-size 속성 : 글꼴의 크기
+        기본사이즈 : 16px
+        절대크기 px
+        상대크기 : em(배율), &(퍼센트)*/
+        font-size : 1.1em; /*110%와 동일*/
       }
+
+      .beverage h2{
+        font-size : 1.5em;
+        /*특정 영역에 공백을 추가하려면 접미사 추가*/
+        margin-bottom: 20px;
+      }
+
+      .beverage{
+        /* padding : 컨텐츠 내부영역 */
+        /* 값이 1개 : 위 ,오른쪽, 아래, 왼쪽에 공백*/
+        padding : 10px; 
+        border-width: 3px; /*  테두리 두께*/
+        border-style: solid; /* 테두리 스타일*/
+        border-color: grey; /* 테두리 색상 */
+         /* 축약형 : border-width border-style border color 순서를 기억*/
+        border : 3px dashed grey;
+
+        margin-bottom: 10px;
+      }
+      .seller img{
+        /*테두리를 둥글게 표현*/
+        border-radius: 10px;
+        border-top-left-radius: 20px;
+        border-radius: 10px 20px 30px 40px;
+        border-radius: 50%;
+      }
+
       /* 구조선택자 */
       .menu>li:first-child{
         /*메뉴 클래스의 자식 Li 중에서 첫번째 자식*/
@@ -57,6 +100,16 @@
         background-color: rgba(255, 0, 0, 0.3);
       }
 
+      .feature{
+        /*클래스가 feature인것을 선택 */
+        text-decoration: underline;
+        font-weight: bold;
+        
+      }
+
+      .menu{
+        margin-bottom: 10px,0;
+      }
 
     </Style>
     <header>
@@ -79,7 +132,7 @@
           <div> 
             <h2>Green Tea Cooler</h2>
             <img src="./images/green.jpg" title="녹색" alt="초록이다">
-            <p>Chock full of vitamins and minerals, this elixir combines the healthful benefits of green tea with a twist of chamomile blossoms and ginger root.</p>
+            <p>Chock full of <span class="feature">vitamins and minerals,</span> this elixir combines the healthful benefits of green tea with a twist of chamomile blossoms and ginger root.</p>
           </div>
         </section>
         <section id="lightblue" class="lightblue beverage">
