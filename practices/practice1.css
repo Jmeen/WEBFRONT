@@ -1,0 +1,60 @@
+@charset "UTF-8 ";
+*{
+    margin: 0;
+    padding : 0;
+}
+
+body{
+    font: 맑은고딕, 돋움;
+    font-size: 0.75em;
+    color:#333;
+}
+
+.tbl-ex{
+    border : solid;
+    border-width: 1px;
+    border-color: #333;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border-left: 0;
+    border-right: 0;
+    border-bottom-style: solid;
+}
+
+th,td{
+    padding: 8px;
+    border-left: 0;
+    border-right: 0;
+}
+
+th{
+    border-style: solid;
+    border-color: black;
+    background-color: #999;
+    font-size: 1.1em;
+    color: #fff;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}
+td{
+    border-width: 2px;
+    /*border-top-style: dotted;*/
+    border-bottom-style: dotted;
+}
+
+.tbl-ex{
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+tr:nth-child(2n){
+    background-color: #E8ECF6;
+    
+}
+
+tr:hover{
+    background-color: #fc6;
+    cursor: pointer;
+}

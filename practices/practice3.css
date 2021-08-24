@@ -1,0 +1,46 @@
+@charset "UTF-8 ";
+*{
+    margin: 0;
+    padding : 0;
+}
+body{
+    font: 맑은고딕, 돋움;
+    font-size: 0.75em;
+    color: #333;;
+}
+
+.tab-box{
+    width: 520px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+ul{
+    list-style-type: none;
+    height: 27px;
+}
+li{
+    margin-right: 2px;
+    width: 100px;
+    height: 22px;
+    border : 1px solid #999;
+    background-color: #ccc;
+    text-align: center;
+    padding-top: 3px;
+    float: left;
+    border-radius: 10px 10px 0 0 ;
+}
+
+.tab-box>div{
+    border:1px solid #999;
+    margin-top: -1px;
+    text-align: center;
+    line-height: 200px;
+    width: 516px;
+}
+
+.selected{
+    background-color: orange;
+}
+    

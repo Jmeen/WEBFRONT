@@ -1,0 +1,33 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 맑은고딕, 돋움;
+    font-size: 0.75em;
+    color: #333;
+}
+
+.login-form{
+    width: 180px;
+    padding: 10px;
+    border:1px solid #666;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+label{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+input[type=image]{
+    diplay:block;
+    margin-left: 110px;
+    width: 60px;
+}
