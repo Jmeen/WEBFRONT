@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="content type" content="text/html" charset="UTF-8">
+    <title>position example</title>
+    <style>
+        /* position 속성을 이용, 출력 좌표계를 변경*/
+        .container{
+            border : 1px solid;
+            margin-top : 10px;
+            height:100px;
+            position: relative;
+
+            /* over flow : 자식이 넘쳤을때 표시를 제어*/
+            /*overflow: hidden;*/
+            overflow: scroll;
+        }
+        .box{
+            width: 100px; 
+            height: 100px;
+            position: absolute;
+        }
+        .box:first-child{
+            background-color: red;
+        }
+        .box:nth-child(2){
+            left: 50px;
+            top : 50px;
+            /* z축의 우선순위를 조정. */ 
+            z-index: 10;
+            background-color: green;
+        }
+        .box:nth-child(3){
+            left: 100px;
+            top:100px;
+            background-color: blue;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <!-- HTML의 기본 출력방식은 static -->
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+
+</html>
