@@ -27,5 +27,45 @@ position = s1.indexOf("Java",position);
 console.log("2nd Java",position);
 
 position += "Java".length;
-position = s1.indexOf("Java", position);
-console.log("no keyword", position);
+position = s1.indexOf("Java", position);  // 검색어 없음
+console.log("no keyword", position); // 찾는 검색어 없음 -1
+
+
+// 문자열 치환 : replace
+console.log(s1.replace("JavaScript", "JS"));
+// String은 불변 자료형. 내부 데이터는 변경되지 않음.
+console.log("원본 : ", s1);
+
+// 좌우 화이트 스페이스 제거 : trim
+console.log("                 Hello            ".trim());
+
+// String 보충
+// " , ' 상관 안한다. 
+// escape 문자 : 특수 문자를 포함할 경우.
+// \n : 개행(줄바꿈)
+// \t : 탭
+// \' : 작은따옴표
+// \" : 큰 따옴표
+// \` : 백틱(Es6, esc아래)
+// \$ : 달러기호(ES6)
+
+let message = "He sain, \"Hello\"";
+console.log(message);
+
+let temp = 24;
+// 현재 온도는 temp도 입니다.
+console.log("현재 온도는 " + temp +"도 입니다.");
+
+// ES6 템플릿 문자열
+// ` ~ ` : 하나의 문자열
+// $ {자바 스크립트 표현식}
+message = `현재 온도는 ${temp}도 입니다.`;
+console.log(message);
+
+message="예전에는 여러줄의 \n 문자열을 만드는게 \n 쉽지않았습니다.";
+console.log(message);
+message=`하지만
+지금은
+너무도 쉽게
+만들 수 있습니다.`
+console.log(message);
