@@ -8,7 +8,7 @@ h1{
 }
 
 /* 가상선택자 : 반응선택자 */
-/* link상태와 visited상태 -> Only A Tag.
+/* link상태와 visited상태는 a tag에서만 사용된다.*/
 a:visited{
     /* 이미 방문한 링크*/
     color:darkviolet;

@@ -5,11 +5,71 @@
 <title>테이블</title>
 
 <style type="text/css" media="screen">
+/* 같이 풀어보기 */
+/* 단계 1*/
+*{
+	margin: 0	;
+	padding: 0;
+}
+/* 단계 1-2: 기본 글꼴 적용*/
+body{
+	font-family: "맑은고딕", 돋움, sans-serif;
+	font-size: 0.75em; /*=75%*/
+	color: #333; /* #333333*/
+}
+.tbl-ex{
+	margin: 10px auto;
+	margin-bottom: 0;
+}
+/* 단계 2 */
+.tbl-ex, td, th{
+	border: 1px solid #333;
+}
+/* 단계 3 */
+.tbl-ex{
+	border-collapse: collapse;
+}
+/* 단계 4*/
+td, th{
+	padding: 8px;
+}
+/* 단계 5 */
+th{
+	background-color: #999;
+	font-size: 1.1em; /* 110% */
+	color: #FFF;
+}
+/* 단계 6*/
+.tbl-ex, th, td{
+	border-left : 0;
+	border-right: 0;
+}
+
+/*단계 7*/
+th{
+	border-top:2px solid black;
+	border-bottom: 2px solid black;
+}
+/* 단계 8*/
+td{
+	border-style: dotted;
+}
+
+/* 단계 10*/
+tr:nth-child(2n+1){
+	background-color: #E8ECF6;
+}
+/* 단계 9*/
+tr:hover{
+	background-color: #fc6;
+	cursor: pointer;
+}
+
 
 </style>
 </head>
 <body>
-	<link rel="stylesheet" href="./practice1.css">
+	<!--<link rel="stylesheet" href="./practice1.css">-->
 	<table class="tbl-ex">
 		<tr>
 			<th>형식</th>
