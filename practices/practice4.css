@@ -27,7 +27,7 @@ label{
 }
 
 input[type=image]{
-    diplay:block;
+    display:block;
     margin-left: 110px;
     width: 60px;
 }
