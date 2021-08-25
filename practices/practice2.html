@@ -4,13 +4,43 @@
 <meta charset="utf-8">
 <title>리스트 정의하기</title>
 <style type="text/css">
+	
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	/* 단계 1 */
+	body{
+		font-family: 맑은고딕, 돋움, sans-serif;
+		font-size: 0.75em;
+		color: #333;
+	}
+
+	li{
+		line-height: 1.8em;
+	}
+
+	/* 단계 2*/
+	.root ul {
+		margin-left: 20px;
+		list-style: none;
+	}
+	/* 단계 3-4 */
+	li{
+		/*
+		list-style-image: url(./images/bullet11.jpg);
+		list-style-position: 0.8px;*/
+		padding-left: 15px;
+		background-image: url(./images/bullet11.jpg);
+		background-repeat: no-repeat;
+		background-position: 0.8px;
+	}
 
 </style>
 </head>
 <body>
-	<link rel="stylesheet" href="./practice2.css"
+	<!--<link rel="stylesheet" href="./practice2.css"-->
 	<ul class="root" >
-	<ul>
 		<li>리스트 스타일</li>
 		<li>리스트 스타일</li>
 			<ul>
