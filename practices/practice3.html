@@ -4,12 +4,55 @@
 <meta charset="utf-8">
 <title>리스트를 이용한 메뉴 만들기</title>
 <style type="text/css">
+/* 단계 1 */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 맑은고딕, 돋음, sans-serif;
+    font-size: 0.75em;
+    color: #333;
+}
+
+.tab-box{
+    width: 520px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* 단계 2 */
+.tab-box ul{
+    list-style-type: none;
+    height: 27px;
+}
+.tab-box li{
+    float: left;
+    width: 100px;
+    height: 22px;
+    border : 1px solid #999;
+    background-color: #ccc;
+    text-align: center;
+    padding-top: 3px;
+    border-radius: 10px 10px 0 0 ;
+    margin-right: 2px;
+}
+.tab-box div{
+    border:1px solid #999;
+    margin-top: -1px;
+    text-align: center;
+    line-height: 200px;
+    width: 516px;
+}
+
 
 </style>
 <script src="" type="text/javascript"></script>
 </head>
 <body>
-<link rel="stylesheet" href="./practice3.css"/>
+<!--<link rel="stylesheet" href="./practice3.css"/>-->
 <div class="tab-box">
 	<ul>
         <li>메뉴 1</li>
