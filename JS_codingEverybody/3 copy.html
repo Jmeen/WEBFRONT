@@ -4,6 +4,38 @@
 <head>
   <title>WEB1 - JavaScript</title>
   <meta charset="utf-8">
+  <script>
+    function nightDayHander(self) {
+      var target = document.querySelector('body');
+      // input value가 night이면 배경색과 글자색을 변경.
+      if (self.value === 'night') {
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        self.value = 'day';
+
+        // querySelectorAll을 사용하면 문서 내 모든 태그를 리스트로 가져올수 있다.
+        // 모든 태그의 스타일 색상을 적용.
+        let alist = document.querySelectorAll('a');
+        let i = 0;
+        while (i < alist.length) {
+          alist[i].style.color = 'powderblue';
+          i++;
+        }
+
+      } else {
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        self.value = 'night';
+
+        let alist = document.querySelectorAll('a');
+        let i = 0;
+        while (i < alist.length) {
+          alist[i].style.color = 'blue';
+          i++;
+        }
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -16,39 +48,8 @@
     document.querySelector('body').style.backgroundColor='white';
     document.querySelector('body').style.color='black';
   ">  -->
-  <input type="button" value="night" onclick="
-  var target = document.querySelector('body');
-  // input value가 night이면 배경색과 글자색을 변경.
-  if(this.value ==='night'){
-    target.style.backgroundColor='black';
-    target.style.color='white';
-    this.value = 'day';
-    
-    // querySelectorAll을 사용하면 문서 내 모든 태그를 리스트로 가져올수 있다.
-    // 모든 태그의 스타일 색상을 적용.
-    let alist = document.querySelectorAll('a');
-    let i = 0;
-    while(i<alist.length){
-      alist[i].style.color='powderblue';
-      i++;
-    }
 
-  } else {
-    target.style.backgroundColor='white';
-    target.style.color='black';
-    this.value = 'night';
-
-    let alist = document.querySelectorAll('a');
-    let i = 0;
-    while(i<alist.length){
-      alist[i].style.color='blue';
-      i++;
-    }
-  } ">
-
-
-
-
+  <input type="button" value="night" onclick="nightDayHander(this);">
 
   <ol>
     <li><a href="1.html">HTML</a></li>
@@ -66,16 +67,7 @@
     the spec fully, and with many engines supporting additional features beyond ECMA.
   </p>
 
-  <input type="button" value="night" onclick="
-  if(this.value ==='night'){
-    target.style.backgroundColor='black';
-    target.style.color='white';
-    this.value = 'day';
-  } else {
-    target.style.backgroundColor='white';
-    target.style.color='black';
-    this.value = 'night';
-  } ">
+  <input type="button" value="night" onclick="nightDayHander(this);">
 </body>
 
 </html>
