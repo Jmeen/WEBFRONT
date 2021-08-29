@@ -2,21 +2,26 @@ var link = {
     setcolor: function (color) {
       // querySelectorAll을 사용하면 문서 내 모든 태그를 리스트로 가져올수 있다.
       // 모든 태그의 스타일 색상을 적용.
-      let alist = document.querySelectorAll('a');
-      let i = 0;
-      while (i < alist.length) {
-        alist[i].style.color = color;
-        i++;
-      }
+    //   let alist = document.querySelectorAll('a');
+    //   let i = 0;
+    //   while (i < alist.length) {
+    //     alist[i].style.color = color;
+    //     i++;
+    //   }
+
+    $('a').css("color",color);
+    // jquary 이용해 위와 같은 내용의 작업을 함.
     }
   };
 
   var body = {
     setColor: function (color) {
-      document.querySelector('body').style.color = color;
+      //document.querySelector('body').style.color = color;
+      $('body').css('color', color);
     },
     setBackgroundColor: function (color) {
-      document.querySelector('body').style.backgroundColor = color;
+    //   document.querySelector('body').style.backgroundColor = color;
+      $('body').css('backgroundColor',color);
     }
   }
 
