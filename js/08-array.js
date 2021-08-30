@@ -122,3 +122,18 @@ fruits.sort(function (v1, v2) {
     if (v1 > v2) return -1;  // v1이 더 크면 앞으로  --> 내림차순
 });
 console.log("sort(user Defind):", fruits)
+
+// split : 특정 구분자 기준으로 문자열 분리 -> Arrays 반환
+const str = "javascript is something strange than other languages";
+let chunks = str.split(" ") // 공백으로 분리
+console.log("split:", chunks);
+
+// loop 1:
+for (let i = 0; i<chunks.length; i++){
+    console.log("Word", chunks[i]);
+}
+
+// loop 2 :
+for (let word in chunks){
+    console.log("word",chunks[word]);
+}
