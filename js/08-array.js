@@ -42,15 +42,83 @@ console.log(arr, arr.length);
 arr[10] = 2021;
 console.log(arr, arr.length);
 
-console.log('== 배열의 메서드')
+console.log('======= 배열의 메서드')
 const veges = ['배추', '무', '쪽파']
-const sources = ['소금','고춧가루','새우젓']
+const sources = ['소금', '고춧가루', '새우젓']
 
 console.log(veges, sources);
 
 // 배열합치기 : concat
 const items = veges.concat(sources);
-console.log("concat : ",items);
+console.log("concat : ", items);
 
 // 배열 요소 합치기 : join
 console.log("join :", items.join(",")); // 요소를 ,로 합치기
+
+console.log("======= push & pop")
+// push : 배열 맨 뒤에 새 요소 추가
+// pop : 배열 맨 뒤의 요소 추출 후 제거
+// push+pop : stack처럼 활용 가능.
+let fruits = ['banana', 'apple', 'mango', 'orange'];
+console.log(fruits);
+fruits.push("수박");
+console.log(fruits);
+console.log('pop:', fruits.pop());// 맨 뒤 요소 추출
+console.log('pop:', fruits.pop());// 맨 뒤 요소 추출
+console.log('pop:', fruits.pop());// 맨 뒤 요소 추출
+console.log('stack : ', fruits);
+
+// shift : 배열의 맨 앞에서 요소추출 후 제거
+// push + shift = queue 자료형
+fruits = ['banana', 'apple', 'mango', 'orange'];
+fruits.push('수박');
+console.log(fruits)
+console.log('shift : ', fruits.shift()); // 맨 앞 요소 추출
+console.log('shift : ', fruits.shift()); // 맨 앞 요소 추출
+console.log('shift : ', fruits.shift()); // 맨 앞 요소 추출
+console.log('queue : ', fruits);
+
+console.log("======= splice")
+// splice : 요소 삭제와 삽입을 한번에 할 수 있다.
+fruits = ['banana', 'apple', 'mango', 'orange'];
+console.log("원본 : ", fruits);
+// 인수가 1개일때 
+console.log('splice2 : ', fruits.splice(2));
+console.log('원본: ', fruits);
+// 인수가 2개일 때 : 1번째 인수 인덱스 부터 2번째 인수 갯수만큼 추출 후 제거
+fruits = ['banana', 'apple', 'mango', 'orange'];
+console.log("원본 : ", fruits);
+console.log('splice 2,1: ', fruits.splice(2, 1));
+console.log('원본: ', fruits);
+
+// 인수가 3개 이상이상 : 1번쨰 인수 인덱스 부터, 2번째 인수 갯수만큼 추출후 제거, 3번째 이후 인수들을 삽입
+fruits = ['banana', 'apple', 'mango', 'orange'];
+console.log("원본 : ", fruits);
+console.log('splice 2,1,etc: ', fruits.splice(2, 1, 'kiwi', 'guaba'));
+console.log('원본: ', fruits);
+
+console.log("======= reverse")
+// Reverse : 배열의 순서를 뒤집는다.
+fruits = ['banana', 'apple', 'mango', 'orange'];
+console.log("원본 : ", fruits);
+fruits.reverse();  // 배열 순서 뒤집기
+console.log('reversed : ', fruits);
+
+console.log("======= slice");
+// slice : 배열의 일부 추출, 원본이 유지된다.
+let slices = fruits.slice(1, 3);
+console.log("조각 : ", slices);
+console.log("원본 : ", fruits);
+
+console.log("======= sort");
+console.log("원본 : ", fruits);
+fruits.sort(); // 기본적으로 오름차순
+console.log("sort(asc) : ", fruits);
+
+// 사용자의 규칙으로 정렬할 경우, 키 함수를 정의
+fruits.sort(function (v1, v2) {
+    if (v1 == v2) return 0;  // 반환값이 0이면 순번이 같다.
+    if (v1 < v2) return 1;   // v1이 더 작으면 뒤로
+    if (v1 > v2) return -1;  // v1이 더 크면 앞으로  --> 내림차순
+});
+console.log("sort(user Defind):", fruits)
