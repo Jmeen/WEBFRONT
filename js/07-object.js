@@ -7,7 +7,6 @@ person.showinfo = function () {
     // 메서드
     let message = `name : ${this.name} , Age : ${this.age}`
     console.log(message);
-
 }
 person.showinfo();  // 속성에 접근시 . 으로 구분
 
@@ -20,9 +19,7 @@ const person2 = {
     showinfo: function () {
         console.log(`name : ${this.name} , Age : ${this.age}`)
     }
-
 }
-
 person2.showinfo();
 
 // prototype 상속
@@ -59,7 +56,7 @@ console.log("menber prototype", member.prototype);
 
 // prototype 영역에 속성 추가
 // 해당 객체를 이용해 new한 모든 객체가 공유.
-member.prototype.introduce = function(){
+member.prototype.introduce = function () {
     console.log(`name : ${this.name}, position ${this.position}`);
 }
 
@@ -68,8 +65,25 @@ m2.introduce();
 console.log("menber prototype", member.prototype);
 
 // 기존 객체들에도 동적으로 속성을 추가할 수 있다.
-String.prototype.seyHello=function(){
+String.prototype.seyHello = function () {
     return "Hello!!!!" + this;
 }
 
 console.log("둘리".seyHello());
+
+console.log("=========== This Binding ")
+
+const testfunc = function (location) {
+    console.log(`나는 ${location}에 사는 ${this.name}입니다.`)
+    console.log(`this는 global인가? `, this === global);
+}
+
+testfunc('서울');
+
+const obj = {name : '홍길동'} ;// 객체 생성
+testfunc.call(obj, "대전"); // 함수 내부의 this를 obj와 연결
+testfunc.apply(obj, ["대구"]); //함수 내부의 this를 obj와 연결, 인자를 배열로 전달.
+
+const boundTestFunc = testfunc.bind(obj);
+// bind 메서드는 함수를 호출하지아는 않고, this가 변경된 새 함수를 반환해준다.
+boundTestFunc('부산')
