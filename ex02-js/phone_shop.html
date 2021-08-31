@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iPhones</title>
+    <style>
+        #product-info img.selected {
+            width: 225px;
+            height: 265px;
+            float: left;
+            border: 1px solid lightslategrey;
+            margin: 5px;
+        }
+
+        #product-list li {
+            list-style-type: none;
+            border: 1px solid lightslategrey;
+            margin: 5px;
+            float: left;
+        }
+
+        #product-list li img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="product-info">
+        <img id="main-image" src="images/iphone-xs.jpeg" class="selected" title="iPhones XS">
+        <h2>iPhone Xs</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        <h3>Products</h3>
+        <ul id="product-list">
+            <li><img class="sub-image" src="./images/iphone-xs.jpeg" title="iPhone XS"></li>
+            <li><img class="sub-image" src="./images/iphone-xr.jpeg" title="iPhone XR"></li>
+            <li><img class="sub-image" src="./images/iphone8.jpeg" title="iPhone 8"></li>
+            <li><img class="sub-image" src="./images/ipad-mini.jpeg" title="iPad Mini"></li>
+        </ul>
+        <input type="text" id="keyword" /><button id="btn-search">검색</button>
+    </div>
+</body>
+<script>
+    function testAttributes() {
+        // main- image id 속성을 가진 요소를 찾아라.
+        let obj = document.getElementById("main-image");
+        console.log("#main-image", obj);
+        // 가지고 있는 모든 속성의 확인
+        console.log(obj.getAttributeNames());
+        for (let key of obj.getAttributeNames()) {
+            console.log(key)
+        }
+        //title속성 출력
+        console.log("title : ", obj.getAttribute("title"));
+        //title속성의 변경
+        obj.setAttribute("title", "사진:" + obj.getAttribute("title"));
+        console.log("title : ", obj.getAttribute("title"));
+
+        // 하단의 product 이미지들의 title속성도 변경해봅시다.
+        let subs = document.getElementsByClassName("sub-image");
+        console.log("#class:",subs)
+        // HTMLCOLLECTION에 직접 접근은 불가. Loop로 개별요소에 접근해야 한다.
+        for(let i= 0; i<subs.length; i++){
+            subs[i].setAttribute("title","사진:"+subs[i].getAttribute('title'));
+        }
+    }
+    testAttributes();
+</script>
+
+</html>
