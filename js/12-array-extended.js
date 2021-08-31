@@ -35,7 +35,7 @@ function testSome() {
 
 }
 
-testSome();
+// testSome();
 
 function testEvery() {
     let data = [
@@ -73,7 +73,7 @@ function testFilter() {
     result = source.filter(item => item % 2 == 0);
     console.log('짝수 필터링:', result);
 }
-testFilter();
+// testFilter();
 
 function testMap() {
     console.log("===== Map");
@@ -109,7 +109,7 @@ function testReduce() {
     console.log('원본 : ', source);
     console.log('누계값(reduce):', sum);
 }
-testReduce();
+// testReduce();
 
 function testReduce2() {
     // map 함수를 reduce 함수로 시뮬레이션
@@ -124,4 +124,18 @@ function testReduce2() {
     }, []);
     console.log(result)
 }
-testReduce2();
+// testReduce2();
+
+function filterMapReduce() {
+    let source = [12, 7, 3, 8, 4, 9, 6, 2, 15, 14];
+    /*
+    source 배열에서 짝수만 필터링.
+    내부 요소를 2배
+    최종 합산
+    */
+    let result = source.filter(item => item % 2 == 0).map(item=>2*item).reduce((acc,value)=>{
+        return acc+value;
+    },0);
+    console.log("결과 :", result);
+}
+filterMapReduce();
