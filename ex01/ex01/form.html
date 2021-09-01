@@ -41,7 +41,8 @@
     <script>
        function checkForm() {
                 //  폼 name으로 식별
-                let frm = document.registerForm;
+                // let frm = document.registerForm;
+                let frm = document.getElementById("myform");
                 console.log(frm);
 
                 //  userid 검증
@@ -96,7 +97,7 @@
 
 <body>
     <h1>멤버쉽 가입</h1>
-    <form name="registerForm" method="POST" action="/register.html" onsubmit="return checkForm()">
+    <form id="myform" name="registerForm" method="POST" action="/register.html" onsubmit="return checkForm()">
         <!-- onsubmit이 false를 리턴하면 폼 전송하지 않음.-->
 
         <fieldset>
