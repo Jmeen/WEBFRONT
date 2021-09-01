@@ -62,37 +62,61 @@
         // Wrapper는 다양한 방식으로 활용 될 수 있다.
         // HTML element가 아닌 Jquery 로 감싼 객체
         let obj = $("#main-image"); // id속성이 main-imange == getElementbyID
-         console.log("#main-image",obj);
+        console.log("#main-image", obj);
         // 가지고 있는 모든 속성의 반환
         console.log(obj[0].getAttributeNames());
         //title 속성을 확인
-        console.log("title:",obj.attr("title"));
+        console.log("title:", obj.attr("title"));
         //title 속성의 변경
-        obj.attr("title", "사진:"+obj.attr("title"))
+        obj.attr("title", "사진:" + obj.attr("title"))
 
         // 하단 product의 이미지들의 title속성 변경해보자.
         let subs = $(".sub-image"); // ==getElementbyclassName
-        console.log(".sub-image",subs);
+        console.log(".sub-image", subs);
 
-        for(let i =0; i<subs.length; i++){
+        for (let i = 0; i < subs.length; i++) {
             //jquery 객체가 아닌 html element는 $로 묶어줘야 jQuery메서드를 호출할 수 있다.
-            $(subs[i]).attr("title","사진:"+$(subs[i]).attr("title"));
+            $(subs[i]).attr("title", "사진:" + $(subs[i]).attr("title"));
         }
-        
+
     }
-    testAttributes(); 
+    testAttributes();
 
     //이벤트 붙이기 두번째 방식
-    document.getElementById("main-image").onclick = function (event) {
-
-    }
-
-    // 이벤트 리스너 부착 : 가장 추천하는 방식
-    window.addEventListener("load", function (event) {
-
+    $("#main-image").on("click", function (event) {
+        console.log(event)
+        console.log("이벤트발생객체", event.target);
+        alert($(event.target).attr("title"));
     });
 
+    $(document).ready(function () {
+        //페이지 초기화 수행
+        $("#keyword").on("keyup", function (event) {
+            console.log("event: ", event)
+            console.log(event.target);
+            console.log("눌러진 키:", event.keyCode);
 
+            $("#btn-search").text($(event.target).val() + " : 검색")
+        });
+        // class가 sub-image인 모든 요소들 검색
+
+        let product = $(".sub-image");
+        //jQuery는 검색된 요소가 여러개여도 루프를 돌리지 않아도 된다.
+
+        product.on("click", function (event) {
+            let obj = $(event.target);
+            let mainImage = $("#main-image");
+            mainImage.attr({
+                src: obj.attr('src'),
+                title: obj.attr('title')
+            }); // 여러 속성을 동시에 설정할때는 JavaScript 객체
+
+            let title = $("#product-info h2");
+            title.html(obj.attr('title'));
+            title.css("backgroundColor", obj.data("color"))
+        });
+
+    });
 
 </script>
 
