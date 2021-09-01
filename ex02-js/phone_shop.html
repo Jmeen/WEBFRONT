@@ -42,10 +42,10 @@
             anim id est laborum.</p>
         <h3>Products</h3>
         <ul id="product-list">
-            <li><img class="sub-image" src="./images/iphone-xs.jpeg" title="iPhone XS"></li>
-            <li><img class="sub-image" src="./images/iphone-xr.jpeg" title="iPhone XR"></li>
-            <li><img class="sub-image" src="./images/iphone8.jpeg" title="iPhone 8"></li>
-            <li><img class="sub-image" src="./images/ipad-mini.jpeg" title="iPad Mini"></li>
+            <li><img class="sub-image" src="./images/iphone-xs.jpeg" title="iPhone XS" data-color="red"></li>
+            <li><img class="sub-image" src="./images/iphone-xr.jpeg" title="iPhone XR" data-color="green"></li>
+            <li><img class="sub-image" src="./images/iphone8.jpeg" title="iPhone 8" data-color="blue"></li>
+            <li><img class="sub-image" src="./images/ipad-mini.jpeg" title="iPad Mini" data-color="purple"></li>
         </ul>
         <input type="text" id="keyword" /><button id="btn-search">검색</button>
     </div>
@@ -125,11 +125,18 @@
                 //  이벤트 발생 객체 검색
                 let obj = event.target;
                 let mainImage = document.getElementById("main-image");
-                mainImage.setAttribute("src", obj.getAttribute("src"));
-                mainImage.setAttribute("title", obj.getAttribute("title"));
+                // mainImage.setAttribute("src", obj.getAttribute("src"));
+                mainImage['src'] = obj['src'];
+
+                // mainImage.setAttribute("title", obj.getAttribute("title"));
+                mainImage['title'] = obj['title'];
 
                 let title = document.querySelector("#product-info h2");
                 title.innerText = obj.getAttribute("title");
+
+                // 스타일 속성 사용하기
+                title.style.backgroundColor = obj.getAttribute("data-color");
+                console.log(obj.getAttribute('data-color'));
             })
         }
     });
