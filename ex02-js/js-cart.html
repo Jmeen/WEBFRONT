@@ -45,8 +45,32 @@
                 let itemNode = document.createElement("li");
                 //  속성과 콘텐츠 설정
                 itemNode.innerHTML = item;
+
+
+                let toolbar = document.createElement("div");
+                toolbar.style.display = "inline";
+                let delBtn = document.createElement("button");
+                delBtn.innerText = "삭제";
+                delBtn.style.cssFloat = "right";
+
+                delBtn.addEventListener("click", function(event) {
+                    //  삭제할 요소
+                    let removeItem = event.target.parentNode.parentNode;
+                    console.log("삭제할 요소:", removeItem);
+                    //  부모 요소 찾기
+                    let parent = removeItem.parentNode;
+
+                    //  부모로부터 자식 분리
+                    parent.removeChild(removeItem);
+                });
+                toolbar.appendChild(delBtn);
+                itemNode.appendChild(toolbar);
+
                 //  트리에 추가
-                container.appendChild(itemNode);
+                let firstItem = container.children[0];  
+                //  기준이 되는 노드
+                container.insertBefore(itemNode, firstItem);
+                // container.appendChild(itemNode);
             }
 
             itemInput.value = "";
