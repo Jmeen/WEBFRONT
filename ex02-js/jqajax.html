@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax Test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style>
+        .poster {
+            width: 100px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <button id="btnCallnippet">HTML 조각 불러오기</button>
+    <button id="btnCallMovies">영화 목록 불러오기</button>
+
+    <div id="info">
+        <!--Ajax로 snippet.html을 불러와서 표시할 영역-->
+
+    </div>
+
+    <table id="list" border="1" width="640">
+
+    </table>
+</body>
+<script>
+    $(document).ready(function (event) {
+        $("#btnCallMovies").on("click", function (event) {
+            console.log("btnCallMovies Click")
+            $.ajax({
+                url: "http://localhost:3000/movies",
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+                    let movies = response.movies;
+                    for (let i = 0; i < movies.length; i++) {
+                        // 개별 영화 정보
+                        let movie = movies[i];
+                        let title = movies.title;
+                        let director = movie.director;
+                        let movieID = movie.id;
+
+                        let image = "http://localhost:3000/images/" + movie.image
+
+                        console.log(title, director, movieID, image);
+
+                        let tr = $("<tr>");
+
+                        let htmlString = `
+                            <td><img class = "poster" src="${image}"></td>
+                            <td>${title}</td>
+                            <td>${director}</td>
+                        `
+                        tr.html(htmlString);
+
+                        // 테이블에 자식 노드로 추가
+                        $("#list").append(tr);
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log("REQ", request);
+                    console.log("error", error)
+                    console.log("status", status);
+                }
+
+            })
+        })
+
+
+
+        $("#btnCallnippet").on("click", function (event) {
+            console.log("btnCallsnippet Click")
+            $.ajax({
+                url: "snippet.html",
+                type: "GET",
+                datatype: "text/html",
+                success: function (response) {
+                    //성공 callback
+                    //response -> 응답 메세지(html)
+                    console.log(response);
+                    $("#info").html(response);
+                },
+                error: function (request, status, error) {
+                    // 에러 콜백
+                    console.error("Error", error);
+                    console.error("ERROR 발생시 요청 정보", request)
+                    console.error("STATUS", status);
+                }
+            })
+        })
+    })
+</script>
+
+</html>

@@ -11,7 +11,7 @@ function logicA() {
 
     console.log("end LogicA");
 }
-// logicA();
+logicA();
 
 function LogicPromise() {
     console.log("begin LogicPromise");
@@ -46,8 +46,8 @@ async function asyncFunc(){
     return "success";
 }
 // asysc함수는 항상 promise를 반환한다.
-asyncFunc().then(value=>{
-    console.log(value);
-}).catch(reason=>{
-    console.log(reason);
-});
+// asyncFunc().then(value=>{
+//     console.log(value);
+// }).catch(reason=>{
+//     console.log(reason);
+// });
