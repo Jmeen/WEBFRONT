@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Cart</title>
+    <style>
+        #list li {
+            height: 30px;
+        }
+    </style>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Shopping List</h1>
+    </div>
+    <div id="cart-list">
+        <ul id="list">
+            <li>무</li>
+            <li>배추</li>
+            <li>쪽파</li>
+            <li>고춧가루</li>
+        </ul>
+    </div>
+    <div id="cart-input">
+        <input id="item"><button id="btn-add">추가</button>
+    </div>
+    <div id="footer">
+        &copy;Bit Academy
+    </div>
+</body>
+<script>
+           function addItem(event) {
+            console.log(event);
+            // let itemInput = document.getElementById("item");
+            // let item = itemInput.value.trim();
+            let itemInput = $("#item");
+            let item = itemInput.val();
+
+            if (item.length > 0) {
+                //  새 노드를 생성
+                //  ul#list에 자식으로 추가
+                //  부모 찾기
+                // let container = document.getElementById("list");
+                let container = $("#list");
+                //  li 노드 생성
+                // let itemNode = document.createElement("li");
+                let itemNode = $("<li>");   //  새 노드 생성
+                //  속성과 콘텐츠 설정
+                // itemNode.innerHTML = item;
+                itemNode.html(item);
+
+                // let toolbar = document.createElement("div");
+                // toolbar.style.display = "inline";
+                let toolbar = $("<div>").css("display", "inline");
+
+                // let delBtn = document.createElement("button");
+                // delBtn.innerText = "삭제";
+                // delBtn.style.cssFloat = "right";
+                let delBtn = $("<button>").text("삭제").css("float", "right");
+
+                // delBtn.addEventListener("click", function(event) {
+                delBtn.on("click", function(event) {
+                    //  삭제할 요소
+                    // let removeItem = event.target.parentNode.parentNode;
+                    let removeItem = $(event.target.parentNode.parentNode);
+
+                    console.log("삭제할 요소:", removeItem);
+                    //  부모 요소 찾기
+                    // let parent = removeItem.parentNode;
+                    //  부모로부터 자식 분리
+                    // parent.removeChild(removeItem);
+
+                    removeItem.remove();    //  부모를 찾을 필요 없이 삭제
+                });
+
+                // toolbar.appendChild(delBtn);
+                // itemNode.appendChild(toolbar);
+                toolbar.append(delBtn);
+                itemNode.append(toolbar);
+
+                //  트리에 추가
+                // let firstItem = container.children[0];  
+                //  기준이 되는 노드
+                // container.insertBefore(itemNode, firstItem);
+                // container.appendChild(itemNode);
+                itemNode.appendTo(container);
+            }
+
+            // itemInput.value = "";
+            // itemInput.focus();
+            itemInput.val("");
+            itemInput.focus();
+        }
+
+        // window.addEventListener("load", function(event) {
+        $(document).ready(function(event) {
+            //  추가 버튼을 눌렀을 때의 이벤트 연결
+            // document.getElementById("btn-add")
+            //     .addEventListener("click", addItem);
+            $("#btn-add").on("click", addItem);
+            //  리스트 초기화
+            // let items = document.querySelectorAll("#list > li");
+            // for (let i = 0; i < items.length; i++) {
+            //     items[i].parentNode.removeChild(items[i]);
+            // }
+            let items = $("#list > li");
+            items.each(function(index, item) {
+                item.remove();
+            });
+        })
+</script>
+
+</html>
