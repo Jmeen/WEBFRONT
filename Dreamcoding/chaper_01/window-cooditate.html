@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coodinates</title>
+  <style>
+    body {
+      background-color: black;
+      overflow: auto;
+    }
+
+    .item {
+      /* display: block; */
+      width: 50px;
+      height: 50px;
+      background-color: wheat;
+      margin-bottom: 5px;
+    }
+
+    #spec {
+      background-color: tomato;
+    }
+
+    .buttons {
+
+      position: fixed;
+      top: 20px;
+      right: 20px;
+
+
+    }
+
+    .buttons button {
+
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="buttons">
+    <button id="btby100px">Scroll by 100px(y)</button>
+    <button id="btto100px">Scroll to 100px(y)</button>
+    <button id="bttospecial">Scroll into spectial</button>
+  </div>
+  <div class="container">
+    <div class="item">item1</div>
+    <div class="item">item2</div>
+    <div class="item">item3</div>
+    <div class="item">item4</div>
+    <div class="item">item5</div>
+    <div class="item">item6</div>
+    <div class="item">item7</div>
+    <div class="item">item8</div>
+    <div class="item">item9</div>
+    <div class="item">item10</div>
+    <div class="item">item11</div>
+    <div class="item" id="spec">item12</div>
+    <div class="item">item13</div>
+    <div class="item">item14</div>
+    <div class="item">item15</div>
+    <div class="item">item16</div>
+    <div class="item">item17</div>
+    <div class="item">item18</div>
+    <div class="item">item19</div>
+    <div class="item">item20</div>
+  </div>
+
+  <script>
+    const btby100px = document.querySelector("#btby100px");
+    btby100px.addEventListener("click", event => {
+      scrollBy({ top: 100, left: 0, behavior: 'smooth' });
+    })
+
+    const btto100px = document.querySelector("#btto100px");
+    btto100px.addEventListener("click", event => {
+      scrollTo(0, 100);
+    })
+
+    const bttospecial = document.querySelector("#bttospecial");
+    bttospecial.addEventListener("click", event => {
+      special.scrollIntoView({ behavior: 'smooth' });
+    })
+
+    const special = document.querySelector('#spec');
+    let x = document.querySelector('#screen-log');
+    document.addEventListener('click', logKey);
+    function logKey(e) {
+      const rect = special.getBoundingClientRect();
+      console.log(rect);
+      console.log("client :", e.clientX, ",", e.clientY)
+      console.log("page :", e.pageX, ",", e.pageY)
+    }
+  </script>
+
+
+
+</body>
+
+</html>

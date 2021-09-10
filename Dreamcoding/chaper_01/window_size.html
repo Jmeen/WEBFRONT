@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>window size</title>
+  <style>
+    .tag {
+      display: inline-block;
+      background-color: thistle;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 이 영역의 class는 Tag 이다. -->
+  <div class="tag">Window Size </div>
+  <script>
+    // .tag라는 값을 찾아 tag 변수에 할당한ㄷ.
+    const tag = document.querySelector('.tag');
+
+    // update Tag는 Tag안의 내용을 변경하는 함수이다.
+    // innerHTML은 Tag안의 내용을 변경하는 메소드이다.
+    function updateTag() {
+      tag.innerHTML =
+        `
+        window.screen:${window.screen.width},${window.screen.height}<br/>
+        window.outer:${window.outerWidth},${window.outerHeight}<br/>
+        window.inner:${window.innerWidth},${window.innerHeight}<br/>
+        documentElement.clientWidth:${document.documentElement.clientWidth},${document.documentElement.clientHeight}
+        `;
+    }
+
+    // 이부분을 몰랐는데, 윈도우의 이벤트 리스너켜고, "사이즈가 변경될때" 콜백 함수를 실행한다.
+    // 콜백함수를 상단의 UpdateTag 전문이 있었지만, 초기화 한 상태에도 값을 가져와야 했기 때문에 별도의 함수를 생성하였다.
+    window.addEventListener('resize', () => {
+      updateTag();
+
+    });
+    // 처음 화면에 현재 정보를 뿌려주기 위해 1회 함수를 실행한다.
+    updateTag();
+  </script>
+</body>
+</html>

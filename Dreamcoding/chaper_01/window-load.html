@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="test.js" defer></script>
+</head>
+<body>
+  
+
+
+
+
+
+  <script>
+    // only document
+    window.addEventListener('DOMContentLoaded',()=>{
+      console.log('DOMContentLoaded')
+      // 이미지나 폰트를 이용하지 않는한 이것을 이용하는게 빠르다.
+    })
+
+    // after resource(css, imanges)
+    // 리소스가 모두 준비되면 불러와진다.
+    window.addEventListener('load',()=>{
+      console.log('load')
+    })
+    
+    // 새로고침을 하는 순간 실행
+    window.addEventListener('beforeunload',()=>{
+      console.log('beforeunload')
+    })
+
+
+
+  </script>
+</body>
+</html>
