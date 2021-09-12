@@ -1,0 +1,115 @@
+*{
+  box-sizing: border-box;
+}
+
+ul{
+  padding: 0;
+}
+
+body{
+  background-color: #ced3df;
+  text-align: center;
+
+
+}
+section{
+  /* css shadow 사이트 통해 그림자 형태 추가 */
+  -webkit-box-shadow: 6px 7px 6px 2px rgba(0,0,0,0.17); 
+  box-shadow: 6px 7px 6px 2px rgba(0,0,0,0.17);
+  }
+
+
+.list{
+  width: 400px;
+  /* 마진이 있어서 가운데 정렬이 안되니 마진:auto설정 */
+  margin: auto;
+  background-color: #f1f0f7;
+  border-radius: 20px;
+}
+
+.header{
+  height: 48px;
+  padding: 8px;
+  font-size: 24px;
+  /* CSS Gradiant 사이트를 이용하여 그라디언트를 만드수 있다. */
+  background: rgb(238,174,202);
+  background: radial-gradient(
+    circle, 
+    rgba(238,174,202,1) 0%, 
+    rgba(148,187,233,1) 100%);
+  border-radius: 20px 20px 0 0;
+  color: white;
+}
+
+.items{
+  /* 픽셀방법으로 하면 접근성에 좋지 않다. 나중에 수정예정*/
+  height: 500px;
+  /* 아이템 수가 많아지면 자동으로 스크롤바 생성 */
+  overflow: auto;
+}
+
+.item{
+  /* 아이템 안의 두 아이템들을 정렬 */
+  /* flex box사용 */
+  display: flex;
+  /* item안의 것들을 같은 간격으로 나누겠다. */
+  justify-content: space-between;
+  /* 너무 달라붙으니 띄우겠다. */
+  padding: 8px 32px;
+}
+button{
+  outline: none;
+  background: transparent;
+  border:none;
+  cursor: pointer;
+}
+.item_delete{
+  /* 애니메이션 설정 */
+  font-size: 16px;
+  transition: all 300ms ease-in;
+}
+
+.item_delete:hover{
+  /* 마우스가 올라왔을때 빨간색 변경하며 커지기 */
+  color:red;
+  transform: scale(1.1);
+}
+
+.item_divider{
+  width: 90%;
+  height: 1px;
+  background-color: lightgray;
+  margin:auto;
+}
+
+.footer{
+  background: rgb(238,174,202);
+  background: radial-gradient(
+    circle, 
+    rgba(238,174,202,1) 0%, 
+    rgba(148,187,233,1) 100%);
+    border-radius: 0 0 20px 20px;
+}
+
+.footerinput{
+  width: 100%;
+  height: 32px;
+  border:none;
+  outline: none;
+  font-size: 24px;
+  padding : 0 16px;
+}
+
+.footer_button{
+  width: 48px;
+  height: 48px;
+  background-color: black;
+  border-radius: 50px;
+  color:white;
+  font-size: 28px;
+  transition: transform 300ms ease-in;
+}
+
+.footer_button:hover{
+  transform: scale(1.1);
+}
