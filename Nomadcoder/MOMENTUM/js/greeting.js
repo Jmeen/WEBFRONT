@@ -20,10 +20,10 @@ function handleLinkClick(event) {
 function onLoginSubmit(event) {
   // 브라우저의 리프래쉬를 막는다.
   event.preventDefault();
-  const userName = loginInput.value;
-  // if (userName === '') {
+  const usernameThatTheUserWrote = loginInput.value;
+  // if (usernameThatTheUserWrote === '') {
   //   alert("Please wrtite your name")
-  // } else if (userName.length > 15) {
+  // } else if (usernameThatTheUserWrote.length > 15) {
   //   alert("your name is too long")
   // }
   console.log(event)
@@ -31,21 +31,17 @@ function onLoginSubmit(event) {
   loginForm.classList.add(HIDDEN)
   // greeting.innerText = `Hello, ${userName} keep going!`;
   // greeting.classList.remove(HIDDEN)
-  paintGreeting(userName);
+  paintGreeting(usernameThatTheUserWrote);
   // User이름 기억하기 - local Storage
-  localStorage.setItem(USERNAME_KEY, userName);
+  localStorage.setItem(USERNAME_KEY, usernameThatTheUserWrote);
 }
 // 브라우저는 submit을 하면 새로고침을 하라고 프로그램 되어있다.
-
 
 // 중복되는 코드는 함수로 만들자
 function paintGreeting(savedUsername) {
   greeting.classList.remove(HIDDEN)
   greeting.innerText = `Hello, ${savedUsername} keep going!`;
 }
-
-
-
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
