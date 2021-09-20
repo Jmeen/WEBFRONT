@@ -2,6 +2,9 @@
 const clock = document.querySelector("h2#clock")
 clock.innerText = "clock"
 
+// string의 길이 맞추기 padStart 사용
+console.log("1".padStart(2, "0"))
+
 function getClock() {
   const date = new Date();
   const hours = String(date.getHours()).padStart(2, "0");
@@ -10,8 +13,7 @@ function getClock() {
   clock.innerText = `${hours}:${minutes}:${seconds}`;
   // console.log("hello")
 }
-// string의 길이 맞추기 padStart 사용
-console.log("1".padStart(2, "0"))
+
 getClock()
 setInterval(getClock, 1000)
 
