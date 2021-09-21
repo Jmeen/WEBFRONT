@@ -8,9 +8,10 @@ const TODOS_KEY = "todos"
 
 function paintToDo(newTodo) {
   const li = document.createElement("li");
+  li.id = newTodo.id;
   const span = document.createElement("span");
   const buttn = document.createElement("button");
-  span.innerText = newTodo;
+  span.innerText = newTodo.text;
   buttn.innerText = "delete"
   buttn.addEventListener('click', deleteTodo)
   li.appendChild(span);
@@ -32,6 +33,7 @@ function deleteTodo(event) {
   const li = event.target.parentElement;
   // 삭제하기
   li.remove();
+
 }
 
 
@@ -39,9 +41,13 @@ function handletoDoSubmit(event) {
   event.preventDefault();
   console.log(toDoInput.value)
   const newTodo = toDoInput.value;
+  const newTodoObject = {
+    text: newTodo,
+    id: Date.now()
+  }
   toDoInput.value = ""
-  toDos.push(newTodo)
-  paintToDo(newTodo);
+  toDos.push(newTodoObject)
+  paintToDo(newTodoObject);
   saveTodo();
 }
 
