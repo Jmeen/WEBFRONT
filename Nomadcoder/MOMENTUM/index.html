@@ -11,22 +11,26 @@
 
 <body>
   <!-- 1. HTML 작성 -->
+  <h2 id="clock">00:00:00</h2>
   <form id="login-form" class="hidden">
     <!-- HTML input기능을 이용하려면 form안에 있어야한다. -->
     <input required maxlength="15" type="text" placeholder="What is your Name?" />
     <button>Log in</button>
   </form>
-  <h2 id="clock">00:00:00</h2>
-  <h1 class="hidden" id="greeting" ></h1>
+  <h1 class="hidden" id="greeting"></h1>
+  <form id="todo-form">
+    <input type="text" placeholder="Write here a to do and press Enter" required>
+  </form>
+  <ul id="todo-list"> </ul>
   <div id="quote">
     <span></span>
     <span></span>
-  </div>
-  <!-- <a href="https://nomadcoders.co">GO to course</a> -->
+  </div <!-- <a href="https://nomadcoders.co">GO to course</a> -->
   <script src="./js/greeting.js"></script>
   <script src="./js/clock.js"></script>
   <script src="./js/quotes.js"></script>
   <script src="./js/background.js"></script>
+  <script src="./js/todo.js"></script>
 </body>
 
 </html>
