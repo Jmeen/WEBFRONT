@@ -33,9 +33,10 @@ function deleteTodo(event) {
   const li = event.target.parentElement;
   // 삭제하기
   li.remove();
-
+  // console.log(typeof (li.id))
+  toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+  saveTodo();
 }
-
 
 function handletoDoSubmit(event) {
   event.preventDefault();
