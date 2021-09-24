@@ -27,40 +27,54 @@ function onadd() {
   items.appendChild(item);
 
   // 4. 추가된 부분으로 자동 스크롤링
-  item.scrollIntoView({block:'center'})
+  item.scrollIntoView({ block: 'center' })
 
   // 5. input을 초기화 한다.
   input.value = "";
   input.focus();
 }
-
+let id = 0;
+console.log(id)
 function createitem(text) {
-  const itemrow = document.createElement('li');
-  itemrow.setAttribute('class', 'item_row');
+  const itemRow = document.createElement('li');
+  itemRow.setAttribute('class', 'item_row');
+  // 변경된 코드
+  itemRow.setAttribute('data-id', id)
+  itemRow.innerHTML = `
+      <div class="item">
+        <span class="item_name">${text}</span>
+        <button class="item_delete">
+          <i class="fas fa-trash-alt" data-id="${id}"></i>
+      </button>
+      </div> 
+      <div class="item_divider"></div>`;
+  id++;
+  return itemRow;
 
-  const item = document.createElement('div');
-  item.setAttribute('class', 'item');
+  // 기존 코드
+  // const item = document.createElement('div');
+  // item.setAttribute('class', 'item');
 
-  const name = document.createElement('span');
-  name.setAttribute('class', "item_name");
-  name.innerText = text;
+  // const name = document.createElement('span');
+  // name.setAttribute('class', "item_name");
+  // name.innerText = text;
 
-  const deletebtn = document.createElement('button');
-  deletebtn.setAttribute('class', 'item_delete');
-  deletebtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-  deletebtn.addEventListener('click', () => {
-    items.removeChild(itemrow)
-  })
+  // const deletebtn = document.createElement('button');
+  // deletebtn.setAttribute('class', 'item_delete');
+  // deletebtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+  // deletebtn.addEventListener('click', () => {
+  //   items.removeChild(itemrow)
+  // })
 
-  const itemDivider = document.createElement("div");
-  itemDivider.setAttribute('class', 'item_divider');
+  // const itemDivider = document.createElement("div");
+  // itemDivider.setAttribute('class', 'item_divider');
 
-  item.appendChild(name);
-  item.appendChild(deletebtn);
+  // item.appendChild(name);
+  // item.appendChild(deletebtn);
 
-  itemrow.appendChild(item);
-  itemrow.appendChild(itemDivider);
-  return itemrow;
+  // itemrow.appendChild(item);
+  // itemrow.appendChild(itemDivider);
+  // return itemRow;
 }
 
 addbtn.addEventListener('click', () => {
@@ -71,5 +85,14 @@ input.addEventListener('keypress', (event) => {
   // consol.log('key');
   if (event.key == 'Enter') {
     onadd();
+  }
+})
+
+items.addEventListener('click', event => {
+  const id = event.target.dataset.id;
+  if (id) {
+    console.log(id)
+    const toBeDeleted = document.querySelector(`.item_row[data-id='${id}']`)
+    toBeDeleted.remove();
   }
 })
