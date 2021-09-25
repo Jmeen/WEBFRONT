@@ -10,6 +10,7 @@
 const items = document.querySelector(".items");
 const input = document.querySelector(".footerinput");
 const addbtn = document.querySelector(".footer_button")
+const form = document.querySelector(".newForm")
 
 // add버튼을 눌렀을때 이벤트 처리 : on이라는것을 붙이는게 통념
 function onadd() {
@@ -77,16 +78,36 @@ function createitem(text) {
   // return itemRow;
 }
 
-addbtn.addEventListener('click', () => {
+
+
+
+
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
   onadd();
 })
 
-input.addEventListener('keypress', (event) => {
-  // consol.log('key');
-  if (event.key == 'Enter') {
-    onadd();
-  }
-})
+
+
+
+
+// submit으로 변경
+// addbtn.addEventListener('click', () => {
+//   onadd();
+// })
+
+// // keypress 이벤트는 더이상 사용하지 않는다. 수정 필요
+// // input.addEventListener('keypress', (event) => {
+// input.addEventListener('keydown', (event) => {
+//   // consol.log('key');
+//   if (event.isComposing) {
+//     return;
+//   }
+//   if (event.key == 'Enter') {
+//     onadd();
+//   }
+// })
 
 items.addEventListener('click', event => {
   const id = event.target.dataset.id;
