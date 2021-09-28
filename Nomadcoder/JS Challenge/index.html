@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+    }
+
+    .generate {
+      font-size: 1.2em;
+      padding-bottom: 15px;
+    }
+
+    .input {
+      font-size: 1.2em;
+    }
+
+    .selected {
+      display: none;
+    }
+    #select p{
+      padding: 0;
+      margin: 0;
+    }
+  </style>
 </head>
+
 <body>
-  <h2>Hello!</h2>
-  <script src="./js/title.js"></script>
+  <h1>Random Number Game</h1>
+  <div class="generate">
+    <span>Generate a number between 0 to </span>
+    <input id="RndNum" type="number" min="0" required />
+  </div>
+  <form class="input">
+    <span>Guess the number</span>
+    <input id="InputNum" type="number" min="0" required />
+    <input type="submit" value="Play!" />
+  </form>
+  <div id="select" class="selected">
+    <p id="summary">select your number</p>
+    <p id="result">YOU LOST!</p>
+  </div>
+
+  <script src="./js/ch07.js"></script>
 </body>
+
 </html>
