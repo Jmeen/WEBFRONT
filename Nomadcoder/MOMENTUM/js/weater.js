@@ -3,6 +3,7 @@
 // 유저의 위치 인식 Geology
 const API_KEY = "bdcc833e8b82df35fb9715eb0def8602";
 
+
 function onGeoOK(position) {
   const lat = position.coords.latitude
   const lon = position.coords.longitude
@@ -14,15 +15,42 @@ function onGeoOK(position) {
     const name = data.name;
     const weather = data.weather[0].main;
     console.log(name, weather)
+    // weatherIcon(weather);
 
-    cityContainer.innerText = data.name;
-    wetherContainer.innerText = `${data.weather[0].main}/${data.main.temp}`;
+    cityContainer.innerText = "@"+data.name;
+    wetherContainer.innerText = `${Math.round(data.main.temp)}°C`;
   })
 }
 
 function onGeoErr() {
   alert("can`t find you.")
 }
+
+// function weatherIcon(weather){
+//   const whetherIcon = document.querySelector("#whetherIcon")
+//   if (weather==="clear sky")
+//   whetherIcon.innerHTML='<i class="fas fa-sun"></i>';
+//   else if (weather==="few clouds")
+//   whetherIcon.innerHTML='<i class="fas fa-cloud-sun"></i>';
+//   else if (weather==="Clouds")
+//   whetherIcon.innerHTML='<i class="fas fa-cloud"></i>';
+//   else if (weather==="scattered clouds")
+//   whetherIcon.innerHTML='<i class="fas fa-cloud"></i>';
+//   else if (weather==="broken clouds")
+//   whetherIcon.innerHTML='<i class="fas fa-cloud"></i>';
+//   else if (weather==="shower rain")
+//   whetherIcon.innerHTML='<i class="fas fa-cloud-showers-heavy"></i>';
+//   else if (weather==="rain")
+//   whetherIcon.innerHTML='<i class="fas fa-cloud-showers-heavy"></i>';
+//   else if (weather==="thunderstorm")
+//   whetherIcon.innerHTML='<i class="fas fa-poo-storm"></i>';
+//   else if (weather==="snow")
+//   whetherIcon.innerHTML='<i class="fas fa-poo-storm"></i>';
+//   else if (weather==="mist")
+//   whetherIcon.innerHTML='<i class="fas fa-smog"></i>';
+
+// }
+
 
 
 navigator.geolocation.getCurrentPosition(onGeoOK, onGeoErr);

@@ -13,10 +13,11 @@ const chosenImage = images[(Math.floor(Math.random() * images.length))];
 console.log(chosenImage)
 
 const bgimage = document.createElement("img");
+bgimage.classList.add("bgimage");
 
 
 bgimage.src = "./img/" + chosenImage
 
 console.log(bgimage)
 
-document.body.appendChild(bgimage)
+document.body.prepend(bgimage)

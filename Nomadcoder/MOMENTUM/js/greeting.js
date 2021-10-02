@@ -55,3 +55,5 @@ if (savedUsername == null) {
   // greeting.innerText = `Hello, ${savedUsername} keep going!`;
   paintGreeting(savedUsername);
 }
+
+// greeting.addEventListener('click',logouthandler)
