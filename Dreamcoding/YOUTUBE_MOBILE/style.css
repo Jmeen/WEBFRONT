@@ -1,0 +1,68 @@
+:root {
+  /* color*/
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /* size*/
+  --side-paddig: 12px;
+  --avatar-size: 36px;
+
+  /* Font Size*/
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--side-paddig);
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+header .logo {
+  font-size: var(--font-large);
+}
+
+header .logo i {
+  color: var(--red-color);
+}
+
+header .icons {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+header .icons i {
+  padding: var(--side-paddig);
+}
+
+/* video player*/
+.player {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  background-color: var(--black-color);
+}
+
+.player video {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+}
